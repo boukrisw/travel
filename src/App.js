@@ -1,8 +1,29 @@
 import React from "react";
 import "./App.css";
+import Navbar from "./components/Navbar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./components/pages/Home";
+import Services from "./components/pages/Services";
+import Products from "./components/pages/Products";
+import SignUp from "./components/pages/SignUp";
+import Footer from "./components/Footer";
 
 function App() {
-  return <div className="App">YOOOOOOOOO</div>;
+  return (
+    <div className="App">
+      <Router>
+        <Navbar />
+
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/services" component={Services} />
+          <Route exact path="/products" component={Products} />
+          <Route exact path="/sign-up" component={SignUp} />
+        </Switch>
+        <Footer />
+      </Router>
+    </div>
+  );
 }
 
 export default App;
